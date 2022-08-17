@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Failed</title>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</head>
+
+<body>
+  <script>
+    let timerInterval
+        Swal.fire({
+            icon: 'warning',
+            title: 'ข้อมูลผิดพลาด',
+            text: "ID - PASSWORD ผิด",
+            timer: 2000,
+            timerProgressBar: false,
+            didOpen: () => {
+                Swal.showLoading()
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer')
+                window.location.href = 'http://127.0.0.1:5500/fail.html'
+            }
+        })
+
+</script>
+</body>
+
+</html>
